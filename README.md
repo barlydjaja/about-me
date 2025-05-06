@@ -42,5 +42,5 @@ This is an about me page, built to showcase my personal projects, skills, and ex
 ## 🌐 Environment Variables
 Set the following in your `.env` file for social/contact links:
 
-## Future Improvements
+## 🛠️ Future Improvements
 * Add project-detail page with dynamic route, contain the detailed description of each projects
