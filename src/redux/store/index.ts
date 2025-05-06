@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import countReducer from '../reducers/count';
+import spritesReducer from '../reducers/sprites';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 
@@ -10,7 +10,7 @@ const persistConfig = {
 };
 
 const combinedReducers = combineReducers({
-  count: countReducer,
+  sprites: spritesReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, combinedReducers);

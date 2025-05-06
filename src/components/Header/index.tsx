@@ -29,8 +29,6 @@ const Header = () => {
   const { pathname } = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  console.log(pathname);
-
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
