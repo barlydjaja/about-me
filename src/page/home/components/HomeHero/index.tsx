@@ -45,8 +45,9 @@ const HomeHero = () => {
           </Button>
         </div>
         <div className="flex justify-center gap-6 mt-10">
-          {links.map(link => (
+          {links.map((link, idx) => (
             <Link
+              key={idx}
               to={link.href}
               target="_blank"
               rel="noopener noreferrer"

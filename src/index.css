@@ -3,6 +3,57 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.opening {
+  display: block;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  z-index: 2;
+  animation: slide 3s ease-out forwards;
+  animation-delay: 3s;
+}
+
+@keyframes slide {
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+.opening--sprites--wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.opening--sprites {
+  width: 520px;
+  height: 225px;
+  background-image: url('./assets/hadouken-sprites.png');
+  animation: playx 0.5s steps(10) infinite, playy 4.5s steps(9) forwards, fade;
+}
+
+@keyframes playy {
+  0% {
+    background-position-y: 0px;
+  }
+  100% {
+    background-position-y: -2025px;
+  }
+}
+
+@keyframes playx {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: -5200px;
+  }
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
