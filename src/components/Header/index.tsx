@@ -48,7 +48,7 @@ const Header = () => {
               to={route.path}
               className={cn(
                 'text-sm font-medium transition-colors hover:text-primary',
-                pathname === route.path ? 'text-foreground' : 'text-muted-foreground',
+                pathname.startsWith(route.path) ? 'text-foreground' : 'text-muted-foreground',
               )}
             >
               {route.name}
@@ -68,25 +68,19 @@ const Header = () => {
           className="md:hidden border-b px-4 z-50 bg-background/95 backdrop-blur supports-[backdrop-blur]:bg-background/90 absolute top-16 left-0 w-full"
         >
           <nav className="container py-4 flex flex-col space-y-4">
-            {HeaderNavigations.map((route) => {
-              console.log({
-                pathName,
-                routePath: route.path,
-                isActive: pathname.startsWith(route.path),
-              });
-              return(
-                <Link
-                  key={route.path}
-                  to={route.path}
-                  className={cn(
-                    'text-sm font-medium transition-colors hover:text-primary py-2',
-                    pathname.startsWith(route.path) ? 'text-foreground' : 'text-muted-foreground',
-                  )}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {route.name}
-                </Link>
-              );})}
+            {HeaderNavigations.map((route) => (
+              <Link
+                key={route.path}
+                to={route.path}
+                className={cn(
+                  'text-sm font-medium transition-colors hover:text-primary py-2',
+                  pathname.startsWith(route.path) ? 'text-foreground' : 'text-muted-foreground',
+                )}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {route.name}
+              </Link>
+            ))}
           </nav>
         </div>
       )}
