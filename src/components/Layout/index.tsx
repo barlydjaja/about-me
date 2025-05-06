@@ -4,7 +4,7 @@ import Footer from 'components/Footer';
 
 const Layout = () => {
   return (
-    <div className="flex flex-col h-dvh overflow-auto">
+    <div className="flex flex-col min-h-dvh">
       <Header />
       <div className="flex-1">
         <Outlet />
