@@ -2,6 +2,8 @@
 
 This is an about me page, built to showcase my personal projects, skills, and experience as a software engineer.
 
+### Checkout the Demo [here](https://master.d1g99rkqawyg6l.amplifyapp.com)
+
 ## 🚀 Tech Stack
 - **Frontend:** React 19, TypeScript, Vite
 - **Styling:** Tailwind CSS
