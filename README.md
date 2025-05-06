@@ -17,7 +17,7 @@ This is an about me page, built to showcase my personal projects, skills, and ex
 - `src/libs/*` - Shared logic across components
 - `src/page/*` – Page routing
 - `src/page/components/*` - Components specific for that page
-- `src/redux/*` - Handles redux needs
+- `src/redux/*` - Handles redux needs, use persist sessionStorage
 - `src/routes/*` - Handles routing requirements
 
 ## 🖥️ Features

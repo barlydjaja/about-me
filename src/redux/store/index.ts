@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import spritesReducer from '../reducers/sprites';
-import storage from 'redux-persist/lib/storage';
+import storage from 'redux-persist/lib/storage/session';
 import { persistReducer, persistStore } from 'redux-persist';
 
 const persistConfig = {
