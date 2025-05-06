@@ -1,8 +1,7 @@
 import { Button } from 'components/ui/button';
-import { cn } from 'lib/utils';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import { pathName } from 'routes';
 
 // TODO: use from routes
@@ -26,7 +25,6 @@ const HeaderNavigations = [
 ];
 
 const Header = () => {
-  const { pathname } = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -43,16 +41,17 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-6">
           {HeaderNavigations.map((route) => (
-            <Link
+            <NavLink
               key={route.path}
               to={route.path}
-              className={cn(
-                'text-sm font-medium transition-colors hover:text-primary',
-                pathname.startsWith(route.path) ? 'text-foreground' : 'text-muted-foreground',
-              )}
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors hover:text-primary ${
+                  isActive ? 'text-foreground' : 'text-muted-foreground'
+                }`
+              }
             >
               {route.name}
-            </Link>
+            </NavLink>
           ))}
         </nav>
 
@@ -69,17 +68,18 @@ const Header = () => {
         >
           <nav className="container py-4 flex flex-col space-y-4">
             {HeaderNavigations.map((route) => (
-              <Link
+              <NavLink
                 key={route.path}
                 to={route.path}
-                className={cn(
-                  'text-sm font-medium transition-colors hover:text-primary py-2',
-                  pathname.startsWith(route.path) ? 'text-foreground' : 'text-muted-foreground',
-                )}
+                className={({ isActive }) =>
+                  `text-sm font-medium transition-colors hover:text-primary py-2 ${
+                    isActive ? 'text-foreground' : 'text-muted-foreground'
+                  }`
+                }
                 onClick={() => setIsMenuOpen(false)}
               >
                 {route.name}
-              </Link>
+              </NavLink>
             ))}
           </nav>
         </div>
