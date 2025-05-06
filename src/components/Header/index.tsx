@@ -29,8 +29,6 @@ const Header = () => {
   const { pathname } = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  console.log(pathname);
-
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
@@ -76,7 +74,7 @@ const Header = () => {
                 to={route.path}
                 className={cn(
                   'text-sm font-medium transition-colors hover:text-primary py-2',
-                  pathname === route.path ? 'text-foreground' : 'text-muted-foreground',
+                  pathname.startsWith(route.path) ? 'text-foreground' : 'text-muted-foreground',
                 )}
                 onClick={() => setIsMenuOpen(false)}
               >
