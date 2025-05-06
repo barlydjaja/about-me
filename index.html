@@ -2,7 +2,7 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/gif" href="logo.gif" id="icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About&nbsp;Me&nbsp;:&#41;</title>
   </head>
@@ -11,3 +11,97 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+
+<script defer>
+const FRAME_COUNT = 28;
+const DEFAULT_FRAME_DURATION = 40;
+const SPECIAL_FRAME_DURATION = 50;
+const SPECIAL_FRAMES = [2, 8, 14, 20, 26];
+const FAVICON_SIZE = 32;
+
+let currentFrame = 0;
+let lastFrameTime = null;
+let animationFrameId = null;
+let frames = [];
+
+function preloadFrames() {
+  frames = [];
+  for (let i = 0; i < FRAME_COUNT; i++) {
+    const img = new Image();
+    img.src = `./src/assets/logo/frame_${i.toString().padStart(2, '0')}.png`;
+    frames.push(img);
+  }
+  return frames;
+}
+
+function createFaviconCanvas(img) {
+  const canvas = document.createElement('canvas');
+  canvas.width = FAVICON_SIZE;
+  canvas.height = FAVICON_SIZE;
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, FAVICON_SIZE, FAVICON_SIZE);
+  ctx.drawImage(img, 0, 0, FAVICON_SIZE, FAVICON_SIZE);
+  return canvas.toDataURL('image/png');
+}
+
+function updateFavicon(img) {
+  try {
+    document.getElementById('icon').href = createFaviconCanvas(img);
+  } catch (error) {
+    console.error('Error updating favicon:', error);
+  }
+}
+
+function playAnimation(timestamp) {
+  if (!lastFrameTime) lastFrameTime = timestamp;
+  const elapsed = timestamp - lastFrameTime;
+  const delay = SPECIAL_FRAMES.includes(currentFrame) 
+    ? SPECIAL_FRAME_DURATION 
+    : DEFAULT_FRAME_DURATION;
+
+  if (elapsed >= delay) {
+    updateFavicon(frames[currentFrame]);
+    currentFrame = (currentFrame + 1) % FRAME_COUNT;
+    lastFrameTime = timestamp;
+  }
+
+  animationFrameId = requestAnimationFrame(playAnimation);
+}
+
+function waitForImages(frames) {
+  return Promise.all(
+    frames.map(
+      img =>
+        new Promise(resolve => {
+          if (img.complete) {
+            resolve();
+          } else {
+            img.onload = resolve;
+            img.onerror = () => {
+              console.warn(`Failed to load frame: ${img.src}`);
+              resolve(); // Continue even if a frame fails
+            };
+          }
+        })
+    )
+  );
+}
+
+frames = preloadFrames();
+
+window.addEventListener('load', () => {
+  waitForImages(frames)
+    .then(() => {
+      animationFrameId = requestAnimationFrame(playAnimation);
+    })
+    .catch(error => {
+      console.error('Error loading frames:', error);
+    });
+});
+
+window.addEventListener('beforeunload', () => {
+  if (animationFrameId) {
+    cancelAnimationFrame(animationFrameId);
+  }
+});
+</script>
