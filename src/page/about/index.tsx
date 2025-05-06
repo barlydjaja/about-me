@@ -4,6 +4,34 @@ import { pathName } from 'routes';
 import { Link } from 'react-router';
 import profile from 'assets/profile.jpeg';
 
+const educations = [
+  {
+    school: 'University of Indonesia, Indonesia',
+    degree: 'Bachelor of Engineering',
+    duration: '2016 - 2020',
+  },
+  {
+    school: 'Binus University, Indonesia',
+    degree: 'Master of Computer Science',
+    duration: '2021 - 2023',
+  },
+];
+
+const previousEmployments = [
+  {
+    company: 'Shopee, Indonesia',
+    position: 'Software Engineer, Frontend',
+    duration: '2022 - 2025',
+    description: 'Worked on various customer facing products and CMS for Shopee&apos;s internal team. I mostly used ReactJs and React Native.',
+  },
+  {
+    company: 'Rupiah Cepat, Indonesia',
+    position: 'Software Engineer, Frontend',
+    duration: '2021 - 2022',
+    description: 'Peer-to-peer lending platform for Indonesian consumers. The mother company is from China, but the opened a branch in Indonesia. I mostly used VueJs and NuxtJs.'
+  },
+];
+
 const About = () => {
   return (
     <div className="container py-12 max-w-4xl m-auto px-4">
@@ -47,68 +75,43 @@ const About = () => {
             <div>
               <h2 className="text-2xl font-bold mb-4">Education</h2>
               <div className="space-y-4">
-                <div className="flex gap-4">
-                  <div className="mt-1">
-                    <GraduationCap className="h-5 w-5 text-muted-foreground" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Bachelor of Engineering</h3>
-                    <p className="text-muted-foreground">University of Indonesia, Indonesia</p>
-                    <div className="flex items-center text-sm text-muted-foreground mt-1">
-                      <Calendar className="h-4 w-4 mr-1" />
-                      <span>2016 - 2020</span>
+                {educations.map((education, idx) => (
+                  <div className="flex gap-4" key={idx}>
+                    <div className="mt-1">
+                      <GraduationCap className="h-5 w-5 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">{education.degree}</h3>
+                      <p className="text-muted-foreground">{education.school}</p>
+                      <div className="flex items-center text-sm text-muted-foreground mt-1">
+                        <Calendar className="h-4 w-4 mr-1" />
+                        <span>{education.duration}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="mt-1">
-                    <GraduationCap className="h-5 w-5 text-muted-foreground" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Master of Computer Science</h3>
-                    <p className="text-muted-foreground">Binus University, Indonesia</p>
-                    <div className="flex items-center text-sm text-muted-foreground mt-1">
-                      <Calendar className="h-4 w-4 mr-1" />
-                      <span>2021 - 2023</span>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold mb-4">Experience</h2>
+              <h2 className="text-2xl font-bold mb-4">Previous Employments</h2>
               <div className="space-y-4">
-                <div className="flex gap-4">
-                  <div className="mt-1">
-                    <Briefcase className="h-5 w-5 text-muted-foreground" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Software Engineer, Frontend</h3>
-                    <p className="text-muted-foreground">Shopee, Indonesia</p>
-                    <div className="flex items-center text-sm text-muted-foreground mt-1">
-                      <Calendar className="h-4 w-4 mr-1" />
-                      <span>2022 - 2025</span>
+                {previousEmployments.map((employment, idx) => (
+                  <div className="flex gap-4" key={idx}>
+                    <div className="mt-1">
+                      <Briefcase className="h-5 w-5 text-muted-foreground" />
                     </div>
-                    <p className="mt-2">Worked on various customer facing products and CMS for Shopee&apos;s internal team. I mostly used ReactJs and React Native.</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="mt-1">
-                    <Briefcase className="h-5 w-5 text-muted-foreground" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Software Engineer, Frontend</h3>
-                    <p className="text-muted-foreground">Rupiah Cepat, Indonesia</p>
-                    <div className="flex items-center text-sm text-muted-foreground mt-1">
-                      <Calendar className="h-4 w-4 mr-1" />
-                      <span>2021 - 2022</span>
+                    <div>
+                      <h3 className="font-semibold">{employment.position}</h3>
+                      <p className="text-muted-foreground">{employment.company}</p>
+                      <div className="flex items-center text-sm text-muted-foreground mt-1">
+                        <Calendar className="h-4 w-4 mr-1" />
+                        <span>{employment.duration}</span>
+                      </div>
+                      <p className="mt-2">{employment.description}</p>
                     </div>
-                    <p className="mt-2">Peer-to-peer lending platform for Indonesian consumers. The mother company is from China, but the opened a branch in Indonesia. I mostly used VueJs and NuxtJs.</p>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
