@@ -6,7 +6,7 @@ import profile from 'assets/profile.jpeg';
 
 const About = () => {
   return (
-    <div className="container py-12 max-w-4xl m-auto">
+    <div className="container py-12 max-w-4xl m-auto px-4">
       <Button variant="ghost" size="sm" asChild className="mb-4">
         <Link to={pathName.Home}>
           <ArrowLeft className="mr-2 h-4 w-4" />
@@ -91,7 +91,7 @@ const About = () => {
                       <Calendar className="h-4 w-4 mr-1" />
                       <span>2022 - 2025</span>
                     </div>
-                    <p className="mt-2">Worked on various customer facing features and also CMS for Shopee&apos;s internal team. I mostly used ReactJs and React Native.</p>
+                    <p className="mt-2">Worked on various customer facing products and CMS for Shopee&apos;s internal team. I mostly used ReactJs and React Native.</p>
                   </div>
                 </div>
 

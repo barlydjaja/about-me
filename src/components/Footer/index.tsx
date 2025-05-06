@@ -7,7 +7,7 @@ import { pathName } from 'routes';
 const Footer = () => {
   return (
     <footer className="border-t bg-muted/40">
-      <div className="container py-8 md:py-12 m-auto">
+      <div className="container py-8 md:py-12 px-4 m-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-lg font-semibold mb-4">Barly</h3>

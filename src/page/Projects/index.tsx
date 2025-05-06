@@ -23,7 +23,7 @@ const allProjects = [
 
 const ProjectsPage = () => {
   return (
-    <div className="container py-12 max-w-6xl m-auto">
+    <div className="container py-12 max-w-6xl m-auto px-4">
       <div className="mb-8">
         <Button variant="ghost" size="sm" asChild className="mb-4">
           <Link to={pathName.Home}>
