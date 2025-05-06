@@ -21,7 +21,7 @@ export default {
       objectType: 'cover',
       github: 'https://github.com/barlydjaja/thereaction.io',
       demo: 'https://thereaction.io',
-      tags: ['Next.js', 'React', 'Tailwind CSS'],
+      tags: ['MDX', 'Next.js', 'React', 'Tailwind CSS'],
     },
     {
       title: 'Heavy Lifter',
@@ -30,7 +30,7 @@ export default {
       objectType: 'contain',
       github: 'https://github.com/barlydjaja/heavy-lifter',
       demo: 'https://heavy.thereaction.io',
-      tags: ['Next.js', 'React', 'Tailwind CSS'],
+      tags: ['PWA', 'Next.js', 'React', 'Tailwind CSS'],
     },
   ],
   webDevelopment: [
