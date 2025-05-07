@@ -22,7 +22,7 @@ const previousEmployments = [
     company: 'Shopee, Indonesia',
     position: 'Software Engineer, Frontend',
     duration: '2022 - 2025',
-    description: 'Worked on various customer facing products and CMS for Shopee&apos;s internal team. I mostly used ReactJs and React Native.',
+    description: 'Worked on various customer facing products and CMS for Shopee\'s internal team. I mostly used ReactJs and React Native.',
   },
   {
     company: 'Rupiah Cepat, Indonesia',
