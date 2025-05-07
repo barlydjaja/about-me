@@ -2,6 +2,7 @@ import { Outlet } from 'react-router';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
 import SpritesAnimation from 'components/SpritesAnimation';
+import ToggleDarkMode from 'components/ToggleDarkMode';
 
 const Layout = () => {
   return (
@@ -12,6 +13,7 @@ const Layout = () => {
         <Outlet />
       </div>
       <Footer />
+      <ToggleDarkMode />
     </div>
   );
 };

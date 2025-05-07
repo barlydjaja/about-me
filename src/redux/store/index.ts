@@ -1,9 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
-import spritesReducer from '../reducers/sprites';
 import storage from 'redux-persist/lib/storage/session';
 import { persistReducer, persistStore } from 'redux-persist';
-
+import spritesReducer from '../reducers/sprites';
+import darkModeReducer from '../reducers/darkMode';
 const persistConfig = {
   key: 'root',
   storage,
@@ -11,6 +11,7 @@ const persistConfig = {
 
 const combinedReducers = combineReducers({
   sprites: spritesReducer,
+  darkMode: darkModeReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, combinedReducers);
