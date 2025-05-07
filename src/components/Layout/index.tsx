@@ -6,7 +6,7 @@ import ToggleDarkMode from 'components/ToggleDarkMode';
 
 const Layout = () => {
   return (
-    <div className="flex flex-col min-h-dvh">
+    <div className="flex flex-col min-h-dvh selection:bg-primary selection:text-primary-foreground">
       <SpritesAnimation />
       <Header />
       <div className="flex-1">
