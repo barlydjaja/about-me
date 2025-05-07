@@ -1,14 +1,19 @@
 # About me
 
-This is an about me page, built to showcase my personal projects, skills, and experience as a software engineer.
+## Task 
+Create a profile website with the following pages:
+
+1. Landing
+2. Past Projects (CCA/Clubs/Projects/Portfolio, anything fun)
+3. Anything else you want to show
 
 ### Checkout the Demo [here](https://master.d1g99rkqawyg6l.amplifyapp.com)
 
 ## 🚀 Tech Stack
 - **Frontend:** React 19, TypeScript, Vite
 - **Styling:** Tailwind CSS
-- **Routing:** react-router
-- **State Management:** Redux Toolkit, redux-persist
+- **Routing:** react-router, data modes with createBrowserRouter
+- **State Management:** Redux Toolkit, redux-persist in sessionStorage
 - **UI Components:** Shadcn
 
 ## 📁 Project Structure
@@ -46,3 +51,4 @@ Set the following in your `.env` file for social/contact links:
 
 ## 🛠️ Future Improvements
 * Add project-detail page with dynamic route, contain the detailed description of each projects
+* Loading indicator when loading a module
